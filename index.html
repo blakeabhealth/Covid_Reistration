@@ -203,7 +203,7 @@
 				-->
 
 				<footer class="major container medium">
-					<h3>Get shady with science</h3>
+					<h3>Get shad th science</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 					<ul class="actions special">
 						<li><a href="#" class="button">Join our crew</a></li>
@@ -215,44 +215,80 @@
 		<!-- Footer -->
 			<div id="footer">
 				<div class="container medium">
-
-					<header class="major last">
-						<h2>Questions or comments?</h2>
-					</header>
-
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
-					orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
-
-					<form method="post" action="#">
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+				<meta name="description" content="Custom serverless forms for your website">
+				<title>covidregistrationabhealth Form</title>
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			</head>
+			<body class="p-5 bg-light">
+				<!-- CONTACT SECTION -->
+				<section class="bg-white py-4">
+					<div class="container">
 						<div class="row">
-							<div class="col-6 col-12-mobilep">
-								<input type="text" name="name" placeholder="Name" />
-							</div>
-							<div class="col-6 col-12-mobilep">
-								<input type="email" name="email" placeholder="Email" />
-							</div>
-							<div class="col-12">
-								<textarea name="message" placeholder="Message" rows="6"></textarea>
-							</div>
-							<div class="col-12">
-								<ul class="actions special">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</div>
+								<div class="col-md-6 col-xl-12">
+									<h4 class="h2 pb-2">Contact Us</h4>
+									<!-- FORM BY SUPER EASY FORMS -->
+									<form id="covidregistrationabhealth-form" alt="Form by Super Easy Forms" class="pb-3" action="#">
+										
+				<label for="fullName" class="small mb-0">Full Name</label>
+				<input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" null>
+			  
+										<h5 id="covidregistrationabhealth-status" class="text-secondary" style="display:none;">Thanks for Contacting Us</h5>
+										<button class="btn btn-primary mt-3" type="submit" id="covidregistrationabhealth-btn">Send</button>
+									</form>
+								</div>   
 						</div>
-					</form>
-
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-					</ul>
-
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+					</div>         
+				</section>
+				<!--Javascript-->
+				<script
+					src="https://code.jquery.com/jquery-3.4.1.min.js"
+					integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+					crossorigin="anonymous">
+				</script>
+				<script>
+					$(function(){
+						$('#covidregistrationabhealth-form').submit(function(e){
+							e.preventDefault();
+							$.ajax({
+								type: "POST",
+								url: "https://yaun4qtmrb.execute-api.us-east-1.amazonaws.com/DeploymentStage/",
+								dataType: "json",
+								contentType: "application/json",
+								data: JSON.stringify( { "id": "","fullName": $('#fullName').val() } ),
+								beforeSend: function(data) {
+										$('#covidregistrationabhealth-btn').prop('disabled', true);
+										$('#covidregistrationabhealth-form :input').prop('disabled', true);
+										$('#covidregistrationabhealth-status').html('Sending...').show();
+								},
+								success: function(data, status, jqXHR) {
+									console.log(data);
+									if(status === 'success'){
+										$('#covidregistrationabhealth-status').text("We'll get back to you soon").show();
+										$('#covidregistrationabhealth-form :input').removeProp('disabled');
+										$('#covidregistrationabhealth-btn').removeProp('disabled');
+									}
+									else {
+										$('#covidregistrationabhealth-status').text('Error. Please try again.').show();
+										$('#covidregistrationabhealth-form :input').removeProp('disabled');
+										$('#covidregistrationabhealth-btn').removeProp('disabled');
+									}
+								},
+								error: function(jqXHR, textStatus, errorThrown) {
+									$('#covidregistrationabhealth-status').text('Error. Please check your network connection and try again.').show();
+									$('#covidregistrationabhealth-form :input').removeProp('disabled');
+									$('#covidregistrationabhealth-btn').removeProp('disabled');
+								}
+							});
+						}); 				
+					});
+				</script>
+			</body>
+		</html>
 
 				</div>
 			</div>
